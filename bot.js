@@ -2,7 +2,7 @@ const { Telegraf } = require("telegraf");
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 const { Client } = require("@notionhq/client");
-const notion = new Client({ auth: process.env.NOTION_KEY });
+const notion = new Client({ auth: process.env.NOTION_SECRET });
 const databaseId = process.env.NOTION_DATABASE_ID;
 
 bot.start(ctx => ctx.reply("All good"));
