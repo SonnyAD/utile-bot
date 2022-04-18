@@ -1,6 +1,7 @@
 const { Telegraf } = require("telegraf");
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
+global.fetch = require("node-fetch");
 const wretch = require("wretch");
 
 const { Client } = require("@notionhq/client");
