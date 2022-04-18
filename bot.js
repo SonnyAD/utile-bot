@@ -1,6 +1,8 @@
 const { Telegraf } = require("telegraf");
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
+const wretch = require("wretch");
+
 const { Client } = require("@notionhq/client");
 const notion = new Client({ auth: process.env.NOTION_SECRET });
 const databaseId = process.env.NOTION_DATABASE_ID;
@@ -27,9 +29,15 @@ async function findNewLinksToShare() {
     message += "\r\n\r\n";
     message += link.url;
 
+    // Send to Telegram
     bot.telegram
       .sendMessage("@sonny_ad", message)
       .then(() => updateSharedLink(link.id));
+
+    // Send to Twitter
+    await wretch(process.env.TWITTER_POST_URL)
+      .post({message})
+      .res(response => console.log);
   }
 }
 

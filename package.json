@@ -1,14 +1,15 @@
 {
   "name": "utile-bot",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Utile.space bot",
   "main": "bot.js",
   "scripts": {
     "start": "micro-bot"
   },
   "dependencies": {
+    "@notionhq/client": "^0.4.2",
     "micro-bot": "^2.5.3",
-    "@notionhq/client": "^0.4.2"
+    "wretch": "^1.7.9"
   },
   "engines": {
     "node": "12.x"
