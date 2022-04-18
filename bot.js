@@ -36,7 +36,7 @@ async function findNewLinksToShare() {
       .then(() => updateSharedLink(link.id));
 
     // Send to Twitter
-    await wretch().url(process.env.TWITTER_POST_URL)
+    await wretch(process.env.TWITTER_POST_URL)
       .post({"message": message})
       .res(response => console.log);
   }
