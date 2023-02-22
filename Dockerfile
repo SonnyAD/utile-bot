@@ -22,6 +22,7 @@ RUN npm ci
 
 COPY bot.js .
 COPY nostr /usr/bin/nostr
+RUN chmod +x /usr/bin/nostr
 
 RUN apk update && apk add --no-cache websocat
 
