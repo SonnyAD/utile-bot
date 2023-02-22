@@ -1,3 +1,4 @@
 #/bin/sh
 msg=$(printf "$1")
-nostril --envelope --sec "${NOSTR_PRIVKEY}" --content "$msg" | websocat wss://relay.damus.io
+privkey=$(cat /app/nostr.key)
+nostril --envelope --sec "$privkey" --content "$msg" | websocat wss://relay.damus.io
