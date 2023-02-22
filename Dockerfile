@@ -10,7 +10,7 @@ RUN cd nostril \
   && make \
   && make install
 
-FROM node:12-alpine
+FROM node:16-alpine
 
 COPY --from=build-env /usr/local/bin /usr/local/bin
 
