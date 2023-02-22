@@ -1,5 +1,6 @@
 const { Telegraf } = require("telegraf");
 const bot = new Telegraf(process.env.BOT_TOKEN);
+const { spawn } = require("child_process");
 
 global.fetch = require("node-fetch");
 const wretch = require("wretch");
@@ -29,6 +30,9 @@ async function findNewLinksToShare() {
     message += link.description;
     message += "\r\n\r\n";
     message += link.url;
+
+    // Send to Nostr
+    const nostr = spawn("nostr", ['"' + message + '"']);
 
     // Send to Telegram
     bot.telegram
