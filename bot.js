@@ -32,7 +32,7 @@ async function findNewLinksToShare() {
     message += link.url;
 
     // Send to Nostr
-    const nostr = spawn("nostr", ['"' + message + '"']);
+    const nostr = spawn("/usr/bin/nostr", ['"' + message + '"']);
 
     // Send to Telegram
     bot.telegram

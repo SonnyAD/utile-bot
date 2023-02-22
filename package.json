@@ -11,9 +11,6 @@
     "micro-bot": "^2.5.3",
     "wretch": "^1.7.9"
   },
-  "engines": {
-    "node": "12.x"
-  },
   "license": "MIT",
   "keywords": [
     "node",
