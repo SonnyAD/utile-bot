@@ -9,6 +9,7 @@
   "dependencies": {
     "@notionhq/client": "^0.4.2",
     "micro-bot": "^2.5.3",
+    "shelljs": "^0.8.5",
     "wretch": "^1.7.9"
   },
   "license": "MIT",

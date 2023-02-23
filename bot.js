@@ -1,6 +1,6 @@
 const { Telegraf } = require("telegraf");
 const bot = new Telegraf(process.env.BOT_TOKEN);
-const { spawn } = require("child_process");
+const shell = require('shelljs');
 
 global.fetch = require("node-fetch");
 const wretch = require("wretch");
@@ -32,7 +32,10 @@ async function findNewLinksToShare() {
     message += link.url;
 
     // Send to Nostr
-    const nostr = spawn("/usr/bin/nostr", ['"' + message + '"']);
+    if (shell.exec('/usr/bin/nostr "' + message + '"').code !== 0) {
+      console.log("Nostr failed to send message");
+      break;
+    }
 
     // Send to Telegram
     bot.telegram
