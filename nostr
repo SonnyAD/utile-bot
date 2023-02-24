@@ -1,4 +1,8 @@
 #/bin/sh
 msg=$(printf "$1")
 privkey=$(cat /app/nostr.key)
-nostril --envelope --sec "$privkey" --content "$msg" | websocat wss://relay.damus.io
+tweet=$(nostril --envelope --sec "$privkey" --content "$msg") 
+echo $tweet | websocat wss://relay.damus.io
+echo $tweet | websocat wss://relay.nostr.info
+echo $tweet | websocat wss://nostr.zebedee.cloud
+echo $tweet | websocat wss://nostr-pub.wellorder.net
